@@ -37,7 +37,7 @@ const buildRequest = (event: RequestParameters): AnalyzeRequestBody => {
   };
 }
 
-const adaptResponseToIVRText = (body: any) => "low chance of having symptoms of covid19";
+const adaptResponseToIVRText = (body: any) => "low chance of having symptoms of COVID-19";
 
 export const handler: ServerlessFunctionSignature<{}, RequestParameters> = async (
   context: Context,
@@ -49,9 +49,11 @@ export const handler: ServerlessFunctionSignature<{}, RequestParameters> = async
     return callback("Data is not valid, please provide all the fields");
   }
 
+  console.debug("Event data", JSON.stringify(event));
+
   try {
     console.debug(`Ready to start a POST request to ${process.env.VOICEMED_API}/analyze`);
-    console.debug(`request body`, JSON.stringify(buildRequest(event)));
+    console.debug(`Request body`, JSON.stringify(buildRequest(event)));
 
     // const response = await got.post(`${process.env.VOICEMED_API}/analyze`, {
     //   json: true,
@@ -61,7 +63,11 @@ export const handler: ServerlessFunctionSignature<{}, RequestParameters> = async
     //   },
     // });
 
-    callback(null, { diagnosis: adaptResponseToIVRText({}) });
+    const diagnosis = adaptResponseToIVRText({});
+
+    console.debug("Response text", diagnosis);
+
+    callback(null, { diagnosis });
   } catch (e) {
     console.error("VoiceMed analyze api error", e);
     return callback("VoiceMed api returned an error");
