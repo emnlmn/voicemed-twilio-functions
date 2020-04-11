@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "lib": ["esnext", "dom"],
+    "allowJs": false,
+    "outDir": "./functions",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "sourceMap": false,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "exclude": ["tests", "functions", "node_modules"]
+}

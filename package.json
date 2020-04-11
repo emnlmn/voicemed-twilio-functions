@@ -1,0 +1,24 @@
+{
+  "name": "voicemed-twilio-functions",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "tsc",
+    "start": "twilio-run start",
+    "predeploy": "tsc",
+    "deploy": "twilio-run deploy"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "twilio-run": "^2.0.0",
+    "typescript": "^3.8.3"
+  },
+  "engines": {
+    "node": "10.17.0"
+  },
+  "dependencies": {
+    "@twilio-labs/serverless-runtime-types": "^1.1.8",
+    "got": "^10.7.0"
+  }
+}
